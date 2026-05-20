@@ -13,13 +13,13 @@ class SNNParser:
         """Main parsing function. Converts SNN string to a dictionary containing all game data.
 
         Args:
-            snn_string (_type_): _description_
+            snn_string (_type_): The SNN string to parse.
 
         Raises:
-            ValueError: _description_
+            ValueError: If the SNN string is not in the expected format.
 
         Returns:
-            _type_: _description_
+            _type_: A dictionary with keys: width, height, col_clues, row_clues, matrix
         """
         #split into Logic (Clues) and State (Progress)
         try:
@@ -50,10 +50,10 @@ class SNNParser:
         """Expands multipliers and parses clue segments._summary_
 
         Args:
-            clue_str (_type_): _description_
+            clue_str (_type_): The clue string to parse (either column or row clues).
 
         Returns:
-            _type_: _description_
+            _type_: A list of lists, where each inner list contains the clue numbers for that column/row.
         """
         #regex to find (clue)*count
         def expand_clue_match(match):
@@ -77,16 +77,16 @@ class SNNParser:
         """Expands row multipliers and decodes RLE into a 2D matrix.
 
         Args:
-            state_str (_type_): _description_
-            width (_type_): _description_
-            height (_type_): _description_
+            state_str (_type_): The state string to parse.
+            width (_type_): The width of the matrix.
+            height (_type_): The height of the matrix.
 
         Raises:
-            ValueError: _description_
-            ValueError: _description_
+            ValueError: If the state string is not in the expected format.
+            ValueError: If the parsed matrix dimensions do not match the expected width and height.
 
         Returns:
-            _type_: _description_
+            _type_: A 2D list representing the parsed state matrix.
         """
         #regex to find count(row_state) e.g., 10(14u)
         def expand_row_match(match):
@@ -125,7 +125,10 @@ class SNNParser:
         """A simple terminal visualizer for debugging.
 
         Args:
-            parsed_data (_type_): _description_
+            parsed_data (_type_): The parsed SNN data.
+
+        Returns:
+            None
         """
         print(f"\n--- SNN Parsed: {parsed_data['width']}x{parsed_data['height']} ---")
         
