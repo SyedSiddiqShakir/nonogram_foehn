@@ -2,6 +2,8 @@
 
 ![Status](https://img.shields.io/badge/status-active-success)
 
+![Apple Nonogram](./images/apple.png)
+
 A experimental project focused on solving Nonograms using a combination of traditional deductive algorithms and by a custom tokenized LLM setup, at the base revolving around the **Shakir Nonogram Notation (SNN)**.
 
 ## Vision
